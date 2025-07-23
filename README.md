@@ -114,26 +114,12 @@ A beautiful Textual-based TUI that makes managing your beacon friends a joy. It'
 
 The fastest way to see Friend in action:
 
-```bash
-cd /path/to/friend
-./demo.sh
-```
-
-This magical script will:
-1. 🔨 Build the beacon client
-2. 🌐 Start the command server  
-3. 📡 Launch a beacon instance
-4. 🖥️ Open the GUI for interaction
-5. 🧹 Clean up everything when you're done
-
-### Manual Setup
-
-If you prefer the scenic route:
+### Setup
 
 #### 1. Start the Command Server
 ```bash
 cd command
-uv run app.py
+uv run fastapi run app.py
 ```
 *Server will be available at http://localhost:8000*
 
@@ -148,7 +134,7 @@ cmake --build build
 #### 3. Launch the GUI
 ```bash
 cd gui  
-python main.py
+uv run main.py
 ```
 
 ## 🎮 Usage Guide
@@ -203,27 +189,24 @@ netstat -tuln
 
 ### Project Structure
 
-```mermaid
-graph TD
-    F["friend/"] --> B["beacon/"]
-    F --> C["command/"]
-    F --> G["gui/"]
-    F --> D["demo.sh"]
-    F --> CL["CLAUDE.md"]
-    F --> R["README.md"]
-    
-    B --> B1["CMakeLists.txt"]
-    B --> B2["main.c"]
-    B --> B3["build/"]
-    
-    C --> C1["app.py"]
-    C --> C2["pyproject.toml"]
-    C --> C3["uv.lock"]
-    
-    G --> G1["main.py"]
-    G --> G2["pyproject.toml"]
-    G --> G3["uv.lock"]
-
+```
+.
+├── beacon/
+│   ├── CMakeLists.txt
+│   └── main.c
+├── command/
+│   ├── app.py
+│   ├── pyproject.toml
+│   ├── README.md
+│   └── uv.lock
+├── gui/
+│   ├── main.py
+│   ├── pyproject.toml
+│   ├── README.md
+│   └── uv.lock
+├── LICENSE
+├── pyproject.toml
+└── README.md
 ```
 
 ### Building Components
