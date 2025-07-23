@@ -1,0 +1,9 @@
+Checks: "bugprone-*,cert-*,performance-*,readability-*,security-*,misc-*,cppcoreguidelines-*,concurrency-mt-unsafe, -cppcoreguidelines-avoid-non-const-global-variables, -clang-diagnostic-incompatible-pointer-types-discards-qualifiers"
+CheckOptions:
+  - key: "readability-function-cognitive-complexity.DescribeBasicIncrements"
+    value: "false"
+  - key: "readability-function-cognitive-complexity.Threshold"
+    value: 1000
+ExtraArgs:
+  - "-std=gnu11"
+WarningsAsErrors: "*"
